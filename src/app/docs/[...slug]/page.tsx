@@ -3,7 +3,7 @@ import { markdownToHtml } from "@/utils/markdownToHtml";
 
 // 生成静态路径
 export function generateStaticParams() {
-  return [{ slug: ["axios"] }];
+  return [{ slug: ["axios"] }, { slug: ["npm"] }, { slug: ["array"] }];
 }
 
 export default async function Page({
