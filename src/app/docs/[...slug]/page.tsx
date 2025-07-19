@@ -13,12 +13,22 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const { frontmatter, content } = await getMarkdownContent(slug);
-  const htmlContent = await markdownToHtml(content);
+  const { htmlContent, htmlToc } = await markdownToHtml(content);
 
   return (
-    <article>
-      <h1>{frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-    </article>
+    <div className="flex gap-10 pt-[64px] max-w-[1440px] m-auto">
+      <div className="bg-pink-200 w-[200px] shrink-0">
+        <div className="fixed">123123</div>
+      </div>
+      <div className="flex-1">
+        <article dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      </div>
+      <div className="bg-pink-200 w-[300px] shrink-0">
+        <aside
+          className="fixed"
+          dangerouslySetInnerHTML={{ __html: htmlToc }}
+        />
+      </div>
+    </div>
   );
 }
