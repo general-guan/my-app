@@ -1,3 +1,7 @@
+interface List {
+  key: string;
+  name: string;
+}
 export default async function Page({
   params,
 }: {
@@ -47,12 +51,12 @@ export default async function Page({
       <p>{posts2.data.total}</p>
       <div className="flex">
         <ul>
-          {posts2.data.componentBrandList.map((item) => (
+          {posts2.data.componentBrandList.map((item: List) => (
             <li key={item.key}>{item.name}</li>
           ))}
         </ul>
         <ul>
-          {posts2.data.componentSpecificationList.map((item) => (
+          {posts2.data.componentSpecificationList.map((item: List) => (
             <li key={item.key}>{item.name}</li>
           ))}
         </ul>
