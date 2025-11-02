@@ -1,6 +1,7 @@
 interface List {
   key: string;
   name: string;
+  subAggs: List[];
 }
 export default async function Page({
   params,
@@ -58,6 +59,18 @@ export default async function Page({
         <ul>
           {posts2.data.componentSpecificationList.map((item: List) => (
             <li key={item.key}>{item.name}</li>
+          ))}
+        </ul>
+        <ul className="flex">
+          {posts2.data.paramList.map((item: List) => (
+            <li key={item.key}>
+              {item.name}
+              <ul>
+                {item.subAggs.map((subItem: List) => (
+                  <li key={subItem.key}>{subItem.name}</li>
+                ))}
+              </ul>
+            </li>
           ))}
         </ul>
       </div>
