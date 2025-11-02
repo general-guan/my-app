@@ -29,11 +29,11 @@ export default async function Page() {
             电子元器件目录
           </h1>
           <p className="text-lg text-gray-600">
-            共
+            <span>共 </span>
             <span className="font-semibold text-blue-600">
               {posts.data.total.toLocaleString()}
             </span>
-            个元器件
+            <span> 个元器件</span>
           </p>
         </div>
 
